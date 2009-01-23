@@ -1,0 +1,71 @@
+= Template
+
+Where Iridesco starts a project.
+
+= Installation
+
+This is a fully-formed Rails application, used as a baseline for new Iridesco projects. Maybe you want to fork this? Update the following files appropriately:
+
+environment.rb:
+
+  ExceptionNotifier.sender_address       = %("Template bug" <info@iridesco.com>)
+  ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
+
+Also, at this time the restful_authentication plugin is here, but nothing has been generated.
+
+= Summary of contents
+
+=== xss_terminate[http://github.com/look/xss_terminate] and cross_site_sniper[http://xss.rubyforge.org/]
+
+Auto-escaping HTML in Rails is a big ol' pain. Rail Spikes' Luke Francl {wrote up}[http://railspikes.com/2008/1/28/auto-escaping-html-with-rails] a wondering description of the options in the sanitizing space. We decided to go with an über-paranoid outlook and coupled +xss_terminate+ with +cross_site_sniper+. In Co-op[http://coopapp.com] we only needed to work around these wonderful plugins for a couple instances of attribute access. Not bad at all for the protection these plugins provide.
+
+=== exception_notification[http://github.com/rails/exception_notification]
+
+Currently we are still using basic exception notification rather than 3rd-party services like Hoptoad or Exceptional. We will be looking into them, however...
+
+=== restful_authentication[http://github.com/technoweenie/restful-authentication]
+
+We find technoweenie's classic authentication plugin to be a sufficient starting point for the apps we create.
+
+=== haml[http://haml.hamptoncatlin.com/]
+
+The designers at Iridesco love Sass for the power it brings to their stylesheets. Easy variable definition alone is worth the price of admission, which incidentally is free. We don't use Haml in our applications, mainly to avoid inconsistency between apps. We don't find the cost of learning to be offset by a big enough efficiency gain.
+
+=== paperclip[http://github.com/thoughtbot/paperclip]
+
+Paperclip is a refreshingly easy way to attach a file to an object, period. It also provides the means (with some enhancements we added) to strip out exif data from your avatars via the +convert_options+ capability and +-strip+. Really, do you need to be providing bandwidth for exif data on tiny, resized avatars?
+
+=== assert2[http://www.oreillynet.com/ruby/blog/2008/02/assert2.html]
+
+I don't know of anyone else using this little gem, but we at Iridesco love it. Provides a lot more contextual information when your tests fail.
+
+=== mocha[http://github.com/floehopper/mocha/tree/master]
+
+We use flexmock in Harvest, but we now much prefer the syntax of mocha. Granted, we at Iridesco mock as little as possible, but when we do it's mocha time.
+
+=== time-warp[http://github.com/iridesco/time-warp]
+
+This is Iridesco's first open source plugin, and we find it quite useful. Harvest[http://getharvest.com], as you can imagine, is a very time-sensitive application. Same goes for Co-op[http://coopapp.com]. Sometimes we need to test edge cases and this really helps us get it done.
+
+= Other things we use
+
+As the project dictates, we also bring in the following plugins and gems:
+
+  * memcache-client[http://github.com/mperham/memcache-client]
+  * coderay[http://rubyforge.org/projects/coderay/] (For displaying API documentation)
+  * auto_complete[http://github.com/rails/auto_complete] (Usually just for internal support screens)
+  * fasterfromxml[http://fasterfromxml.rubyforge.org/] (Speed boost when doing a lot of API XML processing)
+  * will_paginate[http://github.com/mislav/will_paginate]
+
+= Thing we have tried
+
+  * shoulda[http://github.com/thoughtbot/shoulda] (love contexts, but we're not sold on efficiency gains)
+  * flexmock[http://flexmock.rubyforge.org/] (we just prefer the syntax of mocha)
+
+= Credits
+
+Template is maintained and funded by Iridesco[http://iridesco.com].
+
+= License
+
+Copyright © 2009 Iridesco. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
