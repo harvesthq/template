@@ -51,16 +51,16 @@ This is Iridesco's first open source plugin, and we find it quite useful. Harves
 
 As the project dictates, we also bring in the following plugins and gems:
 
-  * memcache-client[http://github.com/mperham/memcache-client]
-  * coderay[http://rubyforge.org/projects/coderay/] (For displaying API documentation)
-  * auto_complete[http://github.com/rails/auto_complete] (Usually just for internal support screens)
-  * fasterfromxml[http://fasterfromxml.rubyforge.org/] (Speed boost when doing a lot of API XML processing)
-  * will_paginate[http://github.com/mislav/will_paginate]
+* memcache-client[http://github.com/mperham/memcache-client]
+* coderay[http://rubyforge.org/projects/coderay/] (For displaying API documentation)
+* auto_complete[http://github.com/rails/auto_complete] (Usually just for internal support screens)
+* fasterfromxml[http://fasterfromxml.rubyforge.org/] (Speed boost when doing a lot of API XML processing)
+* will_paginate[http://github.com/mislav/will_paginate]
 
 = Thing we have tried
 
-  * shoulda[http://github.com/thoughtbot/shoulda] (love contexts, but we're not sold on efficiency gains)
-  * flexmock[http://flexmock.rubyforge.org/] (we just prefer the syntax of mocha)
+* shoulda[http://github.com/thoughtbot/shoulda] (love contexts, but we're not sold on efficiency gains)
+* flexmock[http://flexmock.rubyforge.org/] (we just prefer the syntax of mocha)
 
 = Credits
 
