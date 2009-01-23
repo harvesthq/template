@@ -11,13 +11,13 @@ environment.rb:
   ExceptionNotifier.sender_address       = %("Template bug" <info@iridesco.com>)
   ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
 
-Also, at this time the +restful_authentication+ plugin is here, but nothing has been generated.
+Also, at this time the restful_authentication plugin is here, but nothing has been generated.
 
 = Summary of contents
 
 === xss_terminate[http://github.com/look/xss_terminate] and cross_site_sniper[http://xss.rubyforge.org/]
 
-Auto-escaping HTML in Rails is a big ol' pain. Rail Spikes' Luke Francl {wrote up}[http://railspikes.com/2008/1/28/auto-escaping-html-with-rails] a wondering description of the options in the sanitizing space. We decided to go with an über-paranoid outlook and coupled +xss_terminate+ with +cross_site_sniper+. In Co-op[http://coopapp.com] we only needed to work around these wonderful plugins for a couple instances of attribute access. Not bad at all for the protection these plugins provide.
+Auto-escaping HTML in Rails is a big ol' pain. Rail Spikes' Luke Francl {wrote up}[http://railspikes.com/2008/1/28/auto-escaping-html-with-rails] a wondering description of the options in the sanitizing space. We decided to go with an über-paranoid outlook and coupled xss_terminate with cross_site_sniper. In Co-op[http://coopapp.com] we only needed to work around these wonderful plugins for a couple instances of attribute access. Not bad at all for the protection these plugins provide.
 
 === exception_notification[http://github.com/rails/exception_notification]
 
@@ -33,7 +33,7 @@ The designers at Iridesco love Sass for the power it brings to their stylesheets
 
 === paperclip[http://github.com/thoughtbot/paperclip]
 
-Paperclip is a refreshingly easy way to attach a file to an object, period. It also provides the means (with some enhancements we added) to strip out exif data from your avatars via the +convert_options+ capability and +-strip+. Really, do you need to be providing bandwidth for exif data on tiny, resized avatars?
+Paperclip is a refreshingly easy way to attach a file to an object, period. It also provides the means (with some enhancements we added) to strip out exif data from your avatars via the +convert_options+ capability and ImageMagick's "-strip". Really, do you need to be providing bandwidth for exif data on tiny, resized avatars?
 
 === assert2[http://www.oreillynet.com/ruby/blog/2008/02/assert2.html]
 
@@ -57,7 +57,7 @@ We repeatedly use helpers in each application. But they just don't feel right in
 
 === config/initializers
 
-We have initializers for: date formats, adding an +#api?+ method to a request, and a +validate_email+ validator. A couple enhancements close to our hearts:
+We have initializers for: date formats, adding an #api? method to a request, and a +validate_email+ validator. A couple enhancements close to our hearts:
 
 * concerned_with[http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model] (nice way to clean up a complex model)
 * disable_mass_assignment (making attributes mass assignable should _not_ be the default behavior of Rails)
