@@ -11,7 +11,7 @@ environment.rb:
   ExceptionNotifier.sender_address       = %("Template bug" <info@iridesco.com>)
   ExceptionNotifier.exception_recipients = %w(shawn@iridesco.com barry@iridesco.com)
 
-Also, at this time the restful_authentication plugin is here, but nothing has been generated.
+Also, at this time the +restful_authentication+ plugin is here, but nothing has been generated.
 
 = Summary of contents
 
@@ -25,7 +25,7 @@ Currently we are still using basic exception notification rather than 3rd-party 
 
 === restful_authentication[http://github.com/technoweenie/restful-authentication]
 
-We find technoweenie's classic authentication plugin to be a sufficient starting point for the apps we create.
+We find technoweenie's classic authentication plugin to be a sufficient starting point for the apps we create. (Note: for now you'll have to generate the authentication logic yourself.)
 
 === haml[http://haml.hamptoncatlin.com/]
 
@@ -46,6 +46,17 @@ We use flexmock in Harvest, but we now much prefer the syntax of mocha. Granted,
 === time-warp[http://github.com/iridesco/time-warp]
 
 This is Iridesco's first open source plugin, and we find it quite useful. Harvest[http://getharvest.com], as you can imagine, is a very time-sensitive application. Same goes for Co-op[http://coopapp.com]. Sometimes we need to test edge cases and this really helps us get it done.
+
+=== application_helper.rb
+
+We repeatedly use helpers in each application. But they just don't feel right in a plugin.
+
+=== config/initializers
+
+We have initializers for: date formats, adding an +#api?+ method to a request, and a +validate_email+ validator. A couple enhancements close to our hearts:
+
+* concerned_with[http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model] (nice way to clean up a complex model)
+* disable_mass_assignment (making attributes mass assignable should _not_ be the default behavior of Rails)
 
 = Other things we use
 
