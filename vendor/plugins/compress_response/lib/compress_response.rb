@@ -1,4 +1,4 @@
-require 'compress_request/request_dont_compress'
+require 'request_dont_compress'
 
 module CompressResponse
 
@@ -18,13 +18,4 @@ module CompressResponse
     end
   end
 
-end
-
-module ActionController
-  class AbstractRequest
-    attr_writer :dont_compress
-    def skip_compression?
-      @dont_compress
-    end
-  end
 end
