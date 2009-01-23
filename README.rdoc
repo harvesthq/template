@@ -51,6 +51,10 @@ For testing RJS code.
 
 This is Iridesco's first open source plugin, and we find it quite useful. Harvest[http://getharvest.com], as you can imagine, is a very time-sensitive application. Same goes for Co-op[http://coopapp.com]. Sometimes we need to test edge cases and this really helps us get it done.
 
+=== compress_response[http://github.com/iridesco/compress_response]
+
+A handy way to gzip compress response bodies automatically with each request. This was taken from an _Agile Web Development with Rails_ example and extended to allow easy skipping of the compression algorithm.
+
 === application_helper.rb
 
 We repeatedly use helpers in each application. But they just don't feel right in a plugin.
