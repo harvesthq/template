@@ -53,7 +53,7 @@ This is Iridesco's first open source plugin, and we find it quite useful. Harves
 
 === compress_response[http://github.com/iridesco/compress_response]
 
-A handy way to gzip compress response bodies automatically with each request. This was taken from an _Agile Web Development with Rails_ example and extended to allow easy skipping of the compression algorithm.
+A handy way to gzip compress response bodies automatically with each request. This was taken from an <em>Agile Web Development with Rails</em> example and extended to allow easy skipping of the compression algorithm.
 
 === application_helper.rb
 
