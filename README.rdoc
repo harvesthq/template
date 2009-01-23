@@ -77,7 +77,7 @@ As the project dictates, we also bring in the following plugins and gems:
 * ruby-openid[http://rubyforge.org/projects/ruby-openid/] (Open ID always gives us problems)
 * open_id_authentication[http://github.com/rails/open_id_authentication] (Really, it does. We've actually hacked this plugin - wonder if it is still necessary?)
 
-= Thing we have tried
+= Things we have tried
 
 * shoulda[http://github.com/thoughtbot/shoulda] (love contexts, but we're not sold on efficiency gains)
 * flexmock[http://flexmock.rubyforge.org/] (we just prefer the syntax of mocha)
@@ -88,4 +88,4 @@ Template is maintained and funded by Iridesco[http://iridesco.com].
 
 = License
 
-Copyright © 2009 Iridesco. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
+Copyright © 2009 Iridesco[http://iridesco.com]. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
