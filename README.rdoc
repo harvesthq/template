@@ -51,7 +51,7 @@ For testing RJS code.
 
 This is Iridesco's first open source plugin, and we find it quite useful. Harvest[http://getharvest.com], as you can imagine, is a very time-sensitive application. Same goes for Co-op[http://coopapp.com]. Sometimes we need to test edge cases and this really helps us get it done.
 
-=== application_helper.rb[link:files/app/helpers/application_helper.rb]
+=== application_helper.rb
 
 We repeatedly use helpers in each application. But they just don't feel right in a plugin.
 
