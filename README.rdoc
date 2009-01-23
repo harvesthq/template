@@ -43,6 +43,10 @@ I don't know of anyone else using this little gem, but we at Iridesco love it. P
 
 We use flexmock in Harvest, but we now much prefer the syntax of mocha. Granted, we at Iridesco mock as little as possible, but when we do it's mocha time.
 
+=== arts[http://github.com/timocratic/arts]
+
+For testing RJS code.
+
 === time-warp[http://github.com/iridesco/time-warp]
 
 This is Iridesco's first open source plugin, and we find it quite useful. Harvest[http://getharvest.com], as you can imagine, is a very time-sensitive application. Same goes for Co-op[http://coopapp.com]. Sometimes we need to test edge cases and this really helps us get it done.
@@ -67,6 +71,11 @@ As the project dictates, we also bring in the following plugins and gems:
 * auto_complete[http://github.com/rails/auto_complete] (Usually just for internal support screens)
 * fasterfromxml[http://fasterfromxml.rubyforge.org/] (Speed boost when doing a lot of API XML processing)
 * will_paginate[http://github.com/mislav/will_paginate]
+* country_select[http://github.com/rails/country_select]
+* acts_as_list[http://github.com/rails/acts_as_list]
+* backgroundrb[http://backgroundrb.rubyforge.org/] (Though I think we'll look into delayed_job[http://github.com/tobi/delayed_job])
+* ruby-openid[http://rubyforge.org/projects/ruby-openid/] (Open ID always gives us problems)
+* open_id_authentication[http://github.com/rails/open_id_authentication] (Really, it does. We've actually hacked this plugin - wonder if it is still necessary?)
 
 = Thing we have tried
 
