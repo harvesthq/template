@@ -68,7 +68,7 @@ We have initializers for: date formats, adding an #api? method to a request, and
 
 === config/session.secret
 
-We use a +session.secret+ file to store the session secret in production.  See +config/environment.rb+ for details.
+We use a session.secret file to store the session secret in production.  See config/environment.rb for details.
 
 = Other things we use
 
