@@ -66,6 +66,10 @@ We have initializers for: date formats, adding an #api? method to a request, and
 * concerned_with[http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model] (nice way to clean up a complex model)
 * disable_mass_assignment (making attributes mass assignable should _not_ be the default behavior of Rails)
 
+=== config/session.secret
+
+We use a +session.secret+ file to store the session secret in production.  See +config/environment.rb+ for details.
+
 = Other things we use
 
 As the project dictates, we also bring in the following plugins and gems:

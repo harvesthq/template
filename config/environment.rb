@@ -64,9 +64,21 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
+  session_secret =
+    if RAILS_ENV == 'production'
+      session_config_file = File.expand_path("#{RAILS_ROOT}/config/session.secret")
+      unless File.exists?(session_config_file)
+        fail "No config/session.secret found. Please create one with 'rake --silent secret > /path/to/app/shared/config/session.secret'"
+      end
+      File.open(session_config_file).read.strip
+    else
+      #the secret for development & test
+      'de8792329704179c89ddfd66afbd19a1b0666398377e148696440a3e8d1ad8f6617b75dfd74cd4d633f241431594b577052071dc52a0747aba53849c323e7fd1'
+    end
+
   config.action_controller.session = {
-    :session_key => '_tempalte_session',
-    :secret      => '9909166aa32e3b5d85b5e7eafbd5b6c58a899738fb0c54104c013740984f987627440e182abcbae6419438a51baffc168165b9e68206ea4cb48d743fafbbcdb3'
+    :session_key => "_template_session#{'test' if RAILS_ENV == 'test'}",
+    :secret      => session_secret
   }
 
   # Use the database for sessions instead of the cookie-based default,
