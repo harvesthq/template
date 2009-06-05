@@ -32,6 +32,7 @@ Rails::Initializer.run do |config|
   # config.gem "memcache-client", :lib => "memcache"
   config.gem "mocha"
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
+  config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
 
   if RAILS_ENV == 'test'
     config.gem 'assert2'

@@ -31,6 +31,10 @@ We find technoweenie's classic authentication plugin to be a sufficient starting
 
 The designers at Iridesco love Sass for the power it brings to their stylesheets. Easy variable definition alone is worth the price of admission, which incidentally is free. We don't use Haml in our applications, mainly to avoid inconsistency between apps. We don't find the cost of learning to be offset by a big enough efficiency gain.
 
+=== whenever[http://github.com/javan/whenever]
+
+An excellent gem that helps us manage our scheduled jobs across our apps, directly in Ruby.  This offers us source control of our scheduling and unification of that little bit of code that previously escaped our repository.
+
 === paperclip[http://github.com/thoughtbot/paperclip]
 
 Paperclip is a refreshingly easy way to attach a file to an object, period. It also provides the means (with some enhancements we added) to strip out exif data from your avatars via the +convert_options+ capability and ImageMagick's "-strip". Really, do you need to be providing bandwidth for exif data on tiny, resized avatars?
