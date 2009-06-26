@@ -3,6 +3,7 @@ require 'assert2'
 require 'rexml/document'
 require 'rexml/entity'
 require 'rexml/formatters/pretty'
+require 'nokogiri'  #  must be installed to use xpath{}!
 
 module Test; module Unit; module Assertions
   
@@ -26,6 +27,30 @@ module Test; module Unit; module Assertions
       #  CONSIDER  figure out how entities are supposed to work!!
       xml = xml.gsub('&mdash;', '--')
       doc = REXML::Document.new(xml)
+      @xdoc = doc.root
+    end
+  end 
+
+  def assert_xhtml_(xhtml)
+    return _assert_xml_(xhtml) # , XML::HTMLParser)
+  end 
+
+  def _assert_xml_(xml) #, parser = XML::Parser)
+    if false
+      xp = parser.new()
+      xp.string = xml
+      
+      if XML.respond_to? :'default_pedantic_parser='
+        XML.default_pedantic_parser = true
+      else
+        XML::Parser.default_pedantic_parser = true
+      end  #  CONSIDER  uh, figure out the best libxml-ruby??
+      
+      @xdoc = xp.parse.root
+    else
+      #  TODO  figure out how entities are supposed to work!!
+      xml = xml.gsub('&mdash;', '--')
+      doc = Nokogiri::XML(xml)
       @xdoc = doc.root
     end
   end 
@@ -79,6 +104,34 @@ module Test; module Unit; module Assertions
     apa = AssertXPathArguments.new(path, id, options)
     node = REXML::XPath.first(@xdoc, apa.xpath, nil, apa.subs)
     
+    add_diagnostic :clear do
+      diagnostic = "xpath: #{ apa.xpath.inspect }\n"
+      diagnostic << "arguments: #{ apa.subs.pretty_inspect }\n" if apa.subs.any?
+      diagnostic + "xml context:\n" + indent_xml
+    end
+
+    if node
+      def node.[](symbol)
+        return attributes[symbol.to_s]
+      end
+    end
+
+    if block
+      assert_('this xpath cannot find a node', :keep_diagnostics => true){ node }
+      assert_ nil, :args => [@xdoc = node], :keep_diagnostics => true, &block  #  TODO  need the _ ?
+    end
+    
+    return node
+    # TODO raid http://thebogles.com/blog/an-hpricot-style-interface-to-libxml/
+  ensure
+    @xdoc = former_xdoc
+  end  #  TODO trap LibXML::XML::XPath::InvalidPath and explicate it's an XPath problem
+ 
+  def xpath_(path, id = nil, options = {}, &block)
+    former_xdoc = @xdoc
+    apa = AssertXPathArguments.new(path, id, options)
+    node = @xdoc.xpath(apa.xpath) #, nil, apa.subs)
+       
     add_diagnostic :clear do
       diagnostic = "xpath: #{ apa.xpath.inspect }\n"
       diagnostic << "arguments: #{ apa.subs.pretty_inspect }\n" if apa.subs.any?

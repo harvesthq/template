@@ -1,7 +1,7 @@
 require 'test/unit'
 
 #  FIXME  the first failing assertion of a batch should suggest you get with Ruby1.9...
-#  TODO  install Coulor
+#  TODO  install Coulor (flibberty) 
 #  TODO  add :verbose => option to assert{}
 #  TODO  pay for Staff Benda Bilili  ALBUM: Tr�s Tr�s Fort (Promo Sampler) !
 #  TODO  evaluate parts[3]
@@ -19,7 +19,7 @@ require 'test/unit'
   #~ end
 
 if RUBY_VERSION < '1.9.0'
-  require 'assert2/rubynode_reflector'  # FIXME default to null_reflector if rubynode not available
+  require 'assert2/rubynode_reflector'
 else
   require 'assert2/ripper_reflector'
 end
@@ -35,7 +35,7 @@ module Test; module Unit; module Assertions
                end
 
   def add_diagnostic(whatever = nil, &block)
-    @__additional_diagnostics ||= []
+    @__additional_diagnostics ||= []  #  TODO move that inside the reflector object, and persist it thru a test case event
     
     if whatever == :clear
       @__additional_diagnostics = []
@@ -81,6 +81,7 @@ module Test; module Unit; module Assertions
   end
 
   module Coulor  #:nodoc:
+    #  TODO  shell into term-ansicolor!
     def colorize(we_color)
       @@we_color = we_color
     end
@@ -115,7 +116,7 @@ module Test; module Unit; module Assertions
     include Coulor
     
     def split_and_read(called)
-      if called =~ /([^:]+):(\d+):/
+      if called + ':' =~ /([^:]+):(\d+):/
         file, line = $1, $2.to_i
         return File.readlines(file)[line - 1 .. -1]
       end
@@ -204,7 +205,10 @@ module Test; module Unit; module Assertions
     options[:keep_diagnostics] or add_diagnostic :clear
     
     begin
-      got = block.call(*options[:args]) and add_assertion and return got
+      if got = block.call(*options[:args])
+        add_assertion
+        return got
+      end
     rescue FlunkError
       raise  #  asserts inside assertions that fail do not decorate the outer assertion
     rescue => got
@@ -235,7 +239,7 @@ module Test; module Unit; module Assertions
     options[:keep_diagnostics] or add_diagnostic :clear
     
     begin
-      got = block.call(*options[:args]) or (add_assertion and return true)
+      got = block.call(*options[:args]) or (add_assertion ; return true)
     rescue FlunkError
       raise
     rescue => got
@@ -251,7 +255,7 @@ module Test; module Unit; module Assertions
     options[:keep_diagnostics] or add_diagnostic :clear
     
     begin
-      got = block.call(*options[:args]) or (add_assertion and return true)
+      got = block.call(*options[:args]) or (add_assertion ; return true)
     rescue FlunkError
       raise
     rescue => got

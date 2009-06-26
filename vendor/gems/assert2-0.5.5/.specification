@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: assert2
 version: !ruby/object:Gem::Version 
-  version: 0.3.4
+  version: 0.5.5
 platform: ruby
 authors: 
 - Phlip
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-01-12 00:00:00 -06:00
+date: 2009-06-20 00:00:00 -05:00
 default_executable: 
 dependencies: []
 
@@ -23,13 +23,17 @@ extra_rdoc_files: []
 
 files: 
 - lib/assert2
+- lib/assert2/xhtml.rb~
+- lib/assert2/rjs.rb
 - lib/assert2/flunk.rb
-- lib/assert2/null_reflector.rb
-- lib/assert2/ripdoc.html.erb
-- lib/assert2/ripdoc.rb
-- lib/assert2/ripper_reflector.rb
+- lib/assert2/rubynode_reflector.rb~
+- lib/assert2/xpath.rb~
 - lib/assert2/rubynode_reflector.rb
 - lib/assert2/xpath.rb
+- lib/assert2/ripper_reflector.rb
+- lib/assert2/ripdoc.html.erb
+- lib/assert2/ripdoc.rb
+- lib/assert2/xhtml.rb
 - lib/assert2.rb
 has_rdoc: false
 homepage: http://assert2.rubyforge.org/
