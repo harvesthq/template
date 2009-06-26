@@ -30,11 +30,11 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "RedCloth"
   # config.gem "memcache-client", :lib => "memcache"
-  config.gem "mocha"
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
   config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
 
   if RAILS_ENV == 'test'
+    config.gem 'mocha'
     config.gem 'assert2'
     config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
   end
