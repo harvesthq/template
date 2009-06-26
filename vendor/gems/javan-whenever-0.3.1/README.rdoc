@@ -2,6 +2,10 @@
 
 Whenever is a Ruby gem that provides a clear syntax for defining cron jobs. It outputs valid cron syntax and can even write your crontab file for you. It is designed to work well with Rails applications and can be deployed with Capistrano. Whenever works fine independently as well.
 
+Ryan Bates created a great Railscast about Whenever: http://railscasts.com/episodes/164-cron-in-ruby
+
+Discussion: http://groups.google.com/group/whenever-gem
+
 == Installation
 
 Regular (non-Rails) install:
@@ -89,15 +93,19 @@ If you wish to simply overwrite your crontab file each time you deploy, use the 
 
 By mixing and matching the <code>--load-file</code> and <code>--user</code> options with your various :roles in Capistrano it is entirely possible to deploy different crontab schedules under different users to all your various servers. Get creative!
 
+If you want to override a variable (like your environment) at the time of deployment you can do so with the <code>--set</code> option: http://wiki.github.com/javan/whenever/setting-variables-on-the-fly
+
 == Credit
 
 Whenever was created for use at Inkling (http://inklingmarkets.com) where I work. Their take on it: http://blog.inklingmarkets.com/2009/02/whenever-easy-way-to-do-cron-jobs-from.html
 
 While building Whenever, I learned a lot by digging through the source code of Capistrano - http://github.com/jamis/capistrano
 
-== Feedback
+== Discussion / Feedback / Issues / Bugs
 
-Email me: javan [at] javan (dot) us
+For general discussion and questions, please use the google group: http://groups.google.com/group/whenever-gem
+
+If you've found a genuine bug or issue, please use the Issues section on github: http://github.com/javan/whenever/issues
 
 == License
 
