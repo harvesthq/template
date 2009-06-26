@@ -1,5 +1,5 @@
 module ActionController
-  class AbstractRequest
+  class Request
     def api?
       format.xml? || format.json?
     end
